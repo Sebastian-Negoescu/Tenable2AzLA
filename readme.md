@@ -1,6 +1,9 @@
-!============================================!
-======= Tenable to Azure Log Analytics =======
-!============================================!
+# Tenable.io for Azure Log Analytics
+
+> *Please Note:*  This script leverages APIs for Tenable IO SDK (TIO) and Azure HTTP Data Collector.
+>               While this is expected, the API may change
+>               unexpectedly on the Tenable / Microsoft side.  However, I plan to update
+>               this integration as Tenable / Microsoft updates their APIs. 
 
 ## Setup
 ```shell

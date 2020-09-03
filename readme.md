@@ -2,11 +2,16 @@
 ======= Tenable to Azure Log Analytics =======
 !============================================!
 
-1. Installing the CLI App
-- Navigate to "integration-azla"
-- run "pip3 install ."
+## Setup
+```shell
+cd integration-azla
+pip3 install .
+```
 
-2. Go through the Help option: Tenable2AzLA --help
+## Options
+The following script details, both, command-line arguments and equivalent environment variables.
+
+```
 Usage: Tenable2AzLA [OPTIONS]
 
   Tenable Assets & Vulnerabilities -> Azure Log Analytics
@@ -24,11 +29,31 @@ Options:
                             DEBUG
 
   --help                    Show this message and exit.
+```
 
-2. Call the CLI App after it's been installed run a test of the CLI App
-- Tenable2AzLA --workspace-id --workspace-key --tio-access-key --tio-secret-key -s
--- optionally, you can call "-b" for the Batch size (it defaults to 1000 if no value is specified) and "-v" for verbosity;
+## Example Usage
 
-3. In your Azure Log Analytics workspace, you can find all the logs under 2 Custom category logs:
+Run the import once:
+
+```
+Tenable2AzLA 
+    --workspace-id {WORKSPACE_ID} \
+    --workspace-key {WORKSPACE_KEY} \
+    --tio-access-key {TIO_ACCESS_KEY} \
+    --tio-secret-key {TIO_SECRET_KEY} \
+    -s / --subscription {SUBSCRIPTION}
+```
+Optionally, you can add 
+```
+    -b {BATCH_SIZE} / --batch-size
+    -v {VERBOSITY} / --verbose
+```
+
+## Azure
+
+In your Azure Log Analytics workspace, you can find all the logs under 2 Custom category logs:
 - AVAS_Assets_CL
 - AVAS_Vulns_CL
+
+[tio_keys]: https://docs.tenable.com/cloud/Content/Settings/GenerateAPIKey.htm
+[azla_wskeys]: https://docs.microsoft.com/en-us/rest/api/loganalytics/workspace%20shared%20keys/getsharedkeys
